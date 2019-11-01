@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>21Structures récursives</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="22Avancé" href="90-advanced-topics.html" />
+  <link rel="prev" title="20Qualité et Testabilité" href="82-testing.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="10-foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="20-datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="25-control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="35-stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="45-compound-datatype.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="50-files.html" class="reference internal ">Les fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="70-standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="78-translation-units.html" class="reference internal ">Assemblage différé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Structures récursives</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#listes-chainees" class="reference internal">Listes chaînées</a></li>
+                
+                  <li class="toctree-l2"><a href="#pile" class="reference internal">Pile</a></li>
+                
+                  <li class="toctree-l2"><a href="#queue" class="reference internal">Queue</a></li>
+                
+                  <li class="toctree-l2"><a href="#liste-doublement-chainee" class="reference internal">Liste doublement chaînée</a></li>
+                
+                  <li class="toctree-l2"><a href="#arbre-binaire-de-recherche" class="reference internal">Arbre binaire de recherche</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="90-advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="92-traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/30-doxygen.html" class="reference internal ">Documentation automatique avec Doxygen</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/70-unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">21</span>Structures récursives</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="82-testing.html"
+       title="Chapitre précédent">← <span class="section-number">20</span>Qualité et Testabilité</a>
+  </li>
+  <li class="next">
+    <a href="90-advanced-topics.html"
+       title="Chapitre suivant"><span class="section-number">22</span>Avancé →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="structures-recursives">
+<h1><span class="section-number">21</span>Structures récursives<a class="headerlink" href="#structures-recursives" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="listes-chainees">
+<h2><span class="section-number">21.1</span>Listes chaînées<a class="headerlink" href="#listes-chainees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une liste chaînée est une structure de données permettant de lier des éléments structurés entre eux. La liste est caractérisée par:</p>
+<ul class="simple">
+<li><p>un élément de tête (<em>head</em>),</p></li>
+<li><p>un élément de queue (<em>tail</em>).</p></li>
+</ul>
+<p>Un élément est caractérisé par:</p>
+<ul class="simple">
+<li><p>un contenu (<em>payload</em>),</p></li>
+<li><p>une référence vers l'élément suivant et/ou précédent dans la liste.</p></li>
+</ul>
+<p>Les listes chaînées réduisent la complexité liée à la manipulation d'éléments dans une liste. L'empreinte mémoire d'une liste chaînée est plus grande qu'avec un tableau, car à chaque élément de donnée est associé un pointeur vers l'élément suivant ou précédent.</p>
+<p>Ce surcoût est souvent part du compromis entre la complexité d'exécution du code et la mémoire utilisée par ce programme.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 23%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" rowspan="3"><p>Structure de donnée</p></th>
+<th class="head" colspan="4"><p>Pire cas</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>Insertion</p></th>
+<th class="head"><p>Suppression</p></th>
+<th class="head" colspan="2"><p>Recherche</p></th>
+</tr>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"></th>
+<th class="head"><p>Trié</p></th>
+<th class="head"><p>Pas trié</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tableau, pile, queue</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(log(n))\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Liste chaînée simple</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(1)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(1)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(n)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="liste-simplement-chainee-linked-list">
+<h3><span class="section-number">21.1.1</span>Liste simplement chaînée (<em>linked-list</em>)<a class="headerlink" href="#liste-simplement-chainee-linked-list" title="Lien permanent vers ce titre">¶</a></h3>
+<p id="index-0">La figure suivante illustre un set d'éléments liés entre eux à l'aide d'un pointeur rattaché à chaque élément. On peut s'imaginer que chaque élément peut se situer n'importe où en mémoire et
+qu'il n'est alors pas indispensable que les éléments se suivent dans l'ordre.</p>
+<p>Il est indispensable de bien identifier le dernier élément de la liste grâce à son pointeur associé
+à la valeur <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<div class="figure align-default">
+<img alt="../_images/list.svg" src="../_images/list.svg" /></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Point</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">Element</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">Point</span> <span class="n">point</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">Element</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">Element</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{.</span><span class="n">point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">};</span>
+    <span class="k">struct</span> <span class="n">Element</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{.</span><span class="n">point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},</span> <span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">};</span>
+    <span class="k">struct</span> <span class="n">Element</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{.</span><span class="n">point</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">},</span> <span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">};</span>
+
+    <span class="n">a</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+
+    <span class="k">struct</span> <span class="n">Element</span><span class="o">*</span> <span class="n">walk</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d. P(x, y, z) = %0.2f, %0.2f, %0.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+            <span class="n">i</span><span class="p">,</span>
+            <span class="n">walk</span><span class="o">-&gt;</span><span class="n">point</span><span class="p">.</span><span class="n">x</span><span class="p">,</span>
+            <span class="n">walk</span><span class="o">-&gt;</span><span class="n">point</span><span class="p">.</span><span class="n">y</span><span class="p">,</span>
+            <span class="n">walk</span><span class="o">-&gt;</span><span class="n">point</span><span class="p">.</span><span class="n">z</span>
+        <span class="p">);</span>
+
+        <span class="n">walk</span> <span class="o">=</span> <span class="n">walk</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operations-sur-une-liste-chainee">
+<h3><span class="section-number">21.1.2</span>Opérations sur une liste chaînée<a class="headerlink" href="#operations-sur-une-liste-chainee" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><p>Création</p></li>
+<li><p>Nombre d'éléments</p></li>
+<li><p>Recherche</p></li>
+<li><p>Insertion</p></li>
+<li><p>Suppression</p></li>
+<li><p>Concaténation</p></li>
+<li><p>Destruction</p></li>
+</ul>
+<p>Lors de la création d'un élément, on utilise principalement le mécanisme
+de l'allocation dynamique ce qui permet de récupérer l'adresse de
+l'élément et de faciliter sa manipulation au travers de la liste.  Ne
+pas oublier de libérer la mémoire allouée pour les éléments lors de leur
+suppression…</p>
+<div class="section" id="calcul-du-nombre-d-elements-dans-la-liste">
+<h4><span class="section-number">21.1.2.1</span>Calcul du nombre d'éléments dans la liste<a class="headerlink" href="#calcul-du-nombre-d-elements-dans-la-liste" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour évaluer le nombre d'éléments dans une liste, on effectue le
+parcours de la liste à partir de la tête, et on passe d'élément en
+élément grâce au champ <em>next</em> de la structure <code class="docutils literal notranslate"><span class="pre">Element</span></code>. On incrément
+le nombre d'éléments jusqu'à ce que le pointeur <em>next</em> soit égal à <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">Element</span> <span class="o">*</span><span class="n">e</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">head</span><span class="p">;</span> <span class="n">e</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">e</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
+    <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Attention, cette technique ne fonctionne pas dans tous les cas, spécialement lorsqu'il y a des boucles dans la liste chaînée. Prenons l'exemple suivant:</p>
+<div class="figure align-default">
+<img alt="../_images/loop.svg" src="../_images/loop.svg" /></div>
+<p>La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et le nombre d'éléments
+calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter ?</p>
+<p>Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appelé <em>algorithme du lièvre et de la tortue</em>. Il consiste à avoir deux pointeurs qui parcourent la liste chaînée. L'un avance deux fois plus vite que le second.</p>
+<div class="figure align-default" id="index-1">
+<img alt="../_images/floyd.svg" src="../_images/floyd.svg" /></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="nf">compute_length</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">size_t</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">Element</span><span class="o">*</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">Element</span><span class="o">*</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">fast</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+
+        <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">slow</span> <span class="o">==</span> <span class="n">fast</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Collision</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Case when no loops detected</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">fast</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Move slow to head, keep fast at meeting point.</span>
+    <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">slow</span> <span class="o">!=</span> <span class="n">fast</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+
+        <span class="n">count</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Une bonne idée pour se simplifier la vie est simplement d'éviter la création de boucles.</p>
+</div>
+<div class="section" id="insertion">
+<h4><span class="section-number">21.1.2.2</span>Insertion<a class="headerlink" href="#insertion" title="Lien permanent vers ce titre">¶</a></h4>
+<p>L'insertion d'un élément dans une liste chaînée peut-être implémentée de la façon suivante:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Element</span><span class="o">*</span> <span class="nf">insert_after</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span> <span class="n">e</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">payload</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Element</span><span class="o">*</span> <span class="n">new</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Element</span><span class="p">));</span>
+
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">new</span><span class="o">-&gt;</span><span class="n">payload</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">new</span><span class="o">-&gt;</span><span class="n">payload</span><span class="p">));</span>
+
+    <span class="n">new</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">e</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">e</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">new</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">new</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="suppression">
+<h4><span class="section-number">21.1.2.3</span>Suppression<a class="headerlink" href="#suppression" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La suppression implique d'accéder à l'élément parent, il n'est donc pas possible à partir d'un élément donné de le supprimer de la liste.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">delete_after</span><span class="p">(</span><span class="n">Element</span><span class="o">*</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">e</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">e</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recherche">
+<h4><span class="section-number">21.1.2.4</span>Recherche<a class="headerlink" href="#recherche" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Rechercher dans une liste chaînée est une question qui peut-être complexe et il est nécessaire de ce poser un certain nombre de questions:</p>
+<ul class="simple">
+<li><p>Est-ce que la liste est triée?</p></li>
+<li><p>Combien d'espace mémoire puis-je utiliser?</p></li>
+</ul>
+<p>On sait qu'une recherche idéale s'effectue en <span class="math notranslate nohighlight">\(O(log(n))\)</span>, mais que la solution triviale en <span class="math notranslate nohighlight">\(O(n)\)</span> est la suivante:</p>
+</div>
+</div>
+</div>
+<div class="section" id="pile">
+<h2><span class="section-number">21.2</span>Pile<a class="headerlink" href="#pile" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="queue">
+<h2><span class="section-number">21.3</span>Queue<a class="headerlink" href="#queue" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="liste-doublement-chainee">
+<h2><span class="section-number">21.4</span>Liste doublement chaînée<a class="headerlink" href="#liste-doublement-chainee" title="Lien permanent vers ce titre">¶</a></h2>
+</div>
+<div class="section" id="arbre-binaire-de-recherche">
+<h2><span class="section-number">21.5</span>Arbre binaire de recherche<a class="headerlink" href="#arbre-binaire-de-recherche" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L'objectif de cette section n'est pas d'entrer dans les détails des <a class="reference external" href="https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche">arbres binaires</a> dont la théorie requiert un ouvrage dédié, mais de vous sensibiliser à l'existence de ces structures de données qui sont à la base de beaucoup de langage de haut niveau comme C++, Python ou C#.</p>
+<p>L'arbre binaire, n'est rien d'autre qu'une liste chaînée comportant deux enfants un <code class="docutils literal notranslate"><span class="pre">left</span></code> et un <code class="docutils literal notranslate"><span class="pre">right</span></code>:</p>
+<div class="figure align-default" id="id1">
+<img alt="../_images/binary-tree.svg" src="../_images/binary-tree.svg" /><p class="caption"><span class="caption-number">Fig. 21.2 </span><span class="caption-text">Arbre binaire équilibré</span></span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours:</p>
+<ul class="simple">
+<li><p>La valeur de l'enfant de gauche est inférieure à celle de son parent</p></li>
+<li><p>La valeur de l'enfant de droite est supérieure à celle de son parent</p></li>
+</ul>
+<p>Cette propriété est très appréciée pour rechercher et insérer des données complexes. Admettons que l'on a un registre patient du type:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">patient</span> <span class="p">{</span>
+    <span class="kt">size_t</span> <span class="n">id</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">firstname</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">lastname</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+    <span class="kt">uint8_t</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">patient</span> <span class="n">data</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Node</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Si l'on cherche le patient numéro <code class="docutils literal notranslate"><span class="pre">612</span></code>, il suffit de parcourir l'arbre de façon dichotomique:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Node</span><span class="o">*</span> <span class="nf">search</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">node</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">id</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">search</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">id</span> <span class="o">&gt;</span> <span class="n">id</span> <span class="o">?</span> <span class="n">node</span><span class="o">-&gt;</span><span class="nl">left</span> <span class="p">:</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>L'insertion et la suppression d'éléments dans un arbre binaire fait appel à des <a class="reference external" href="https://fr.wikipedia.org/wiki/Rotation_d%27un_arbre_binaire_de_recherche">rotations</a>, puisque les éléments doivent être insérés dans le correct ordre et que l'arbre, pour être performant doit toujours être équilibré. Ces rotations sont donc des mécanismes de rééquilibrage de l'arbre ne sont pas triviaux, mais dont la complexité d'exécution reste simple, et donc performante.</p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="82-testing.html"
+       title="Chapitre précédent">← <span class="section-number">20</span>Qualité et Testabilité</a>
+  </li>
+  <li class="next">
+    <a href="90-advanced-topics.html"
+       title="Chapitre suivant"><span class="section-number">22</span>Avancé →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 01 nov. 2019 (version 0.2.0-2-g5c41ba3).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

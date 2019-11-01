@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>3Documentation automatique avec Doxygen</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="4Environnement de développement" href="40-development.html" />
+  <link rel="prev" title="2Grammaire C" href="20-grammar.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../content/05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/10-foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/20-datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/25-control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/35-stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/45-compound-datatype.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/50-files.html" class="reference internal ">Les fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/70-standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/78-translation-units.html" class="reference internal ">Assemblage différé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/85-linked-list.html" class="reference internal ">Structures récursives</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/90-advanced-topics.html" class="reference internal ">Avancé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/92-traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../content/95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Documentation automatique avec Doxygen</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#page-principale-de-la-documentation" class="reference internal">Page principale de la documentation</a></li>
+                
+                  <li class="toctree-l2"><a href="#documentation-au-niveau-fichier-c-ou-h" class="reference internal">Documentation au niveau fichier (.c ou .h)</a></li>
+                
+                  <li class="toctree-l2"><a href="#documentation-au-niveau-fonction" class="reference internal">Documentation au niveau fonction</a></li>
+                
+                  <li class="toctree-l2"><a href="#documentation-d-un-type-structure" class="reference internal">Documentation d'un type structuré</a></li>
+                
+                  <li class="toctree-l2"><a href="#documentation-d-un-type-enumeres" class="reference internal">Documentation d'un type enumérés</a></li>
+                
+                  <li class="toctree-l2"><a href="#documentation-d-un-symbole-du-preprocesseur" class="reference internal">Documentation d'un symbole du préprocesseur</a></li>
+                
+                  <li class="toctree-l2"><a href="#documentation-d-une-macro" class="reference internal">Documentation d'une macro</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="70-unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">3</span>Documentation automatique avec Doxygen</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="20-grammar.html"
+       title="Chapitre précédent">← <span class="section-number">2</span>Grammaire C</a>
+  </li>
+  <li class="next">
+    <a href="40-development.html"
+       title="Chapitre suivant"><span class="section-number">4</span>Environnement de développement →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="documentation-automatique-avec-doxygen">
+<h1><span class="section-number">C</span>Documentation automatique avec Doxygen<a class="headerlink" href="#documentation-automatique-avec-doxygen" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="line-block">
+<div class="line">La documentation d'un logiciel est toujours un point épineux car
+l'effort à mettre en œuvre pour l'écrire est loin d'être négligeable…</div>
+<div class="line">L'outil gratuit et multi-plateforme Doxygen <a class="footnote-reference brackets" href="#id2" id="id1">1</a> permet de générer une
+documentation au format PDF ou sous la forme d'un site Internet à
+partir d'informations qui sont <em>embarquées</em> dans le code sous la forme
+de commentaires. Dès lors, une bonne pratique pour réaliser la
+documentation consiste à ajouter les commentaires nécessaires lors de
+l'écriture du code C lui-même. On gagne alors un temps précieux pour
+la réalisation de la documentation du code !</div>
+</div>
+<div class="section" id="page-principale-de-la-documentation">
+<h2><span class="section-number">C.1</span>Page principale de la documentation<a class="headerlink" href="#page-principale-de-la-documentation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour documenter la page d'introduction du logiiel, on placera au début
+du fichier principal un commentaire comme ci-dessous.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @mainpage Documentation of the labo 22 for INFO1.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @section one Lab description</span>
+<span class="cm"> *</span>
+<span class="cm"> * The aim of this lab is to find the shortest path between to nodes.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @section two Software architecture</span>
+<span class="cm"> *</span>
+<span class="cm"> * The architecture is based on the xxx algorithm....</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-au-niveau-fichier-c-ou-h">
+<h2><span class="section-number">C.2</span>Documentation au niveau fichier (.c ou .h)<a class="headerlink" href="#documentation-au-niveau-fichier-c-ou-h" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour documenter un fichier, on placera au début de ce fichier un
+commentaire comme ci-dessous.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * main file for labo22 (INFO1).</span>
+<span class="cm"> * @author Pierre BRESSY</span>
+<span class="cm"> * @version 1.0</span>
+<span class="cm"> * @date Tue Sep  5 11:24:08 2017</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-au-niveau-fonction">
+<h2><span class="section-number">C.3</span>Documentation au niveau fonction<a class="headerlink" href="#documentation-au-niveau-fonction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour documenter une fonction, on placera avant la fonction un
+commentaire comme ci-dessous.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Entry point of labo22.</span>
+<span class="cm"> * @param[in] argc is the number of arguments of the software (included the software itself)</span>
+<span class="cm"> * @param[in] argv is the table of arguments of the software</span>
+<span class="cm"> * @return a integer value</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;INFO1 - Lab22&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-d-un-type-structure">
+<h2><span class="section-number">C.4</span>Documentation d'un type structuré<a class="headerlink" href="#documentation-d-un-type-structure" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour documenter un type structuré, on placera avant la fonction un
+commentaire comme ci-dessous.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * structure for 2D point management.</span>
+<span class="cm"> *</span>
+<span class="cm"> * s2DPoint contains the x and y coordinates of a point (real values)</span>
+<span class="cm"> */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+   <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>  <span class="cm">/*!&lt; coordinate of the point along the X axis */</span>
+   <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>  <span class="cm">/*!&lt; coordinate of the point along the Y axis */</span>
+<span class="p">}</span> <span class="n">s2DPoint</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-d-un-type-enumeres">
+<h2><span class="section-number">C.5</span>Documentation d'un type enumérés<a class="headerlink" href="#documentation-d-un-type-enumeres" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour documenter un type enumérés, on placera avant la fonction un
+commentaire comme ci-dessous.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * list of possible errors.</span>
+<span class="cm"> *</span>
+<span class="cm"> * eErrorCode is the list a all possible errors for this software</span>
+<span class="cm"> */</span>
+<span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
+   <span class="n">E_NO_ERROR</span><span class="p">,</span>  <span class="cm">/*!&lt; no error at all */</span>
+   <span class="n">E_ERR_OPEN_FILE</span><span class="p">,</span>   <span class="cm">/*!&lt; error while opening file */</span>
+   <span class="n">E_ERR_WRITING_FILE</span><span class="p">,</span>   <span class="cm">/*!&lt; error while writing file */</span>
+   <span class="n">E_ERR_READING_FILE</span>   <span class="cm">/*!&lt; error while readin file */</span>
+<span class="p">}</span> <span class="n">eErrorCode</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-d-un-symbole-du-preprocesseur">
+<h2><span class="section-number">C.6</span>Documentation d'un symbole du préprocesseur<a class="headerlink" href="#documentation-d-un-symbole-du-preprocesseur" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour documenter un symbole du préprocesseur, on placera avant la
+fonction un commentaire comme ci-dessous.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * preprocessor symbol for the THE_ANSWER.</span>
+<span class="cm"> *</span>
+<span class="cm"> * This symbol is the value of the answer</span>
+<span class="cm"> */</span>
+<span class="cp">#define THE_ANSWER 42</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-d-une-macro">
+<h2><span class="section-number">C.7</span>Documentation d'une macro<a class="headerlink" href="#documentation-d-une-macro" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour documenter une macro, on placera avant la fonction un commentaire
+comme ci-dessous.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * macro to get the maximum value from a and b</span>
+<span class="cm"> * @param a first value for maximum evaluation</span>
+<span class="cm"> * @param b second value for maximum evaluation</span>
+<span class="cm"> *</span>
+<span class="cm"> * This macro returns the maxium value between a and b</span>
+<span class="cm"> */</span>
+<span class="cp">#define MAX(a,b) ( (a)&gt;(b) ? (a):(b) )</span>
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Doxygen est téléchargeable depuis le site Internet
+<a class="reference external" href="http://www.doxygen.org">http://www.doxygen.org</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="20-grammar.html"
+       title="Chapitre précédent">← <span class="section-number">2</span>Grammaire C</a>
+  </li>
+  <li class="next">
+    <a href="40-development.html"
+       title="Chapitre suivant"><span class="section-number">4</span>Environnement de développement →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 01 nov. 2019 (version 0.2.0-2-g5c41ba3).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

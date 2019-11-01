@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html  lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145664552-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145664552-1');
+    </script>
+    
+      <title>22Avancé</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Recherche" href="../search.html" />
+  <link rel="next" title="23Pièges" href="92-traps.html" />
+  <link rel="prev" title="21Structures récursives" href="85-linked-list.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">Le C pour l&#39;ingenieur</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link  router-link-active">
+         Contenu
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#le-c-pour-l-ingenieur"
+         class="nav-link ">
+         Annexes
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Recherche rapide</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Recherche" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Contenu</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="05-introduction.html" class="reference internal ">Introduction</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="07-programming.html" class="reference internal ">La programmation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="10-foundations.html" class="reference internal ">Généralités du langage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="15-numeration.html" class="reference internal ">Numération</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="17-operators.html" class="reference internal ">Opérateurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="20-datatype.html" class="reference internal ">Types de données</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="25-control-structures.html" class="reference internal ">Structures de contrôle</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="30-processus.html" class="reference internal ">Programmes et Processus</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="35-stdio.html" class="reference internal ">Entrées Sorties</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="40-functions.html" class="reference internal ">Fonctions</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="45-compound-datatype.html" class="reference internal ">Types composites</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="50-files.html" class="reference internal ">Les fichiers</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="55-memory-management.html" class="reference internal ">Gestion de la mémoire</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="60-pointers.html" class="reference internal ">Pointeurs</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="70-standard-library.html" class="reference internal ">Bibliothèques</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="75-preprocessor.html" class="reference internal ">Préprocesseur</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="77-algorithms.html" class="reference internal ">Algorithmes et conception</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="78-translation-units.html" class="reference internal ">Assemblage différé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="80-scopes.html" class="reference internal ">Portée et visibilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="82-testing.html" class="reference internal ">Qualité et Testabilité</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="85-linked-list.html" class="reference internal ">Structures récursives</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Avancé</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#points-de-sequences" class="reference internal">Points de séquences</a></li>
+                
+                  <li class="toctree-l2"><a href="#complement-sur-les-variables-initialisees" class="reference internal">Complément sur les variables initialisées</a></li>
+                
+                  <li class="toctree-l2"><a href="#binutils" class="reference internal">Binutils</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="92-traps.html" class="reference internal ">Pièges</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="95-philosophy.html" class="reference internal ">Philosophie</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#le-c-pour-l-ingenieur">Annexes</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../appendix/10-vscode.html" class="reference internal ">Visual Studio Code</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/20-grammar.html" class="reference internal ">Grammaire C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/30-doxygen.html" class="reference internal ">Documentation automatique avec Doxygen</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/40-development.html" class="reference internal ">Environnement de développement</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/70-unit.html" class="reference internal ">Fiches d'unités</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/80-laboratories.html" class="reference internal ">Laboratoires</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/88-summary.html" class="reference internal ">Résumé</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../appendix/99-colophon.html" class="reference internal ">Colophon</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">22</span>Avancé</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="85-linked-list.html"
+       title="Chapitre précédent">← <span class="section-number">21</span>Structures récursives</a>
+  </li>
+  <li class="next">
+    <a href="92-traps.html"
+       title="Chapitre suivant"><span class="section-number">23</span>Pièges →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="avance">
+<h1><span class="section-number">22</span>Avancé<a class="headerlink" href="#avance" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce chapitre regroupe les sujets avancés dont la compréhension n'est pas requise pour le contrôle de connaissance.</p>
+<div class="section" id="points-de-sequences">
+<span id="sequence-point"></span><h2><span class="section-number">22.1</span>Points de séquences<a class="headerlink" href="#points-de-sequences" title="Lien permanent vers ce titre">¶</a></h2>
+<p>On appelle un point de séquence ou <a class="reference external" href="https://en.wikipedia.org/wiki/Sequence_point">sequence point</a> exprimé dans l'annexe C du standard C99 chaque élément de code dont l'exécution est garantie avant la séquence suivante. Ce qu'il est important de retenir c'est:</p>
+<ul class="simple">
+<li><p>L'appel d'une fonction est effectué après que tous ses arguments ont été évalués</p></li>
+<li><dl class="simple">
+<dt>La fin du premier opérande dans les opérations <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, <cite>?</cite> et <cite>,</cite>.</dt><dd><ul>
+<li><p>Ceci permet de court-circuiter le calcul dans <code class="docutils literal notranslate"><span class="pre">a()</span> <span class="pre">&amp;&amp;</span> <span class="pre">b()</span> <span class="pre">``.</span> <span class="pre">La</span> <span class="pre">condition</span> <span class="pre">``b()</span></code> n'est jamais évaluée si la condition <code class="docutils literal notranslate"><span class="pre">a()</span></code> est valide.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Avant et après des actions associées à un formatage d'entrée sortie</p></li>
+</ul>
+<p>L'opérateur d'assignation <code class="docutils literal notranslate"><span class="pre">=</span></code> n'est donc pas un point de séquence et l'exécution du code <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">=</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">(a</span> <span class="pre">=</span> <span class="pre">2)</span></code> est par conséquent indéterminée.</p>
+</div>
+<div class="section" id="complement-sur-les-variables-initialisees">
+<h2><span class="section-number">22.2</span>Complément sur les variables initialisées<a class="headerlink" href="#complement-sur-les-variables-initialisees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le fait de déclarer des variables dans en langage C implique que le
+logiciel doit réaliser l'initialisation de ces variables au tout début
+de son exécution. De fait, on peut remarquer deux choses. Il y a les
+variables initialisées à la valeur zéro et les variables initialisées à
+des valeurs différentes de zéro. Le compilateur regroupe en mémoire ces
+variables en deux catégories et ajoute un bout de code au début de votre
+application (qui est exécuté avant le <em>main</em>).</p>
+<p>Ce code (que l'on n'a pas à écrire) effectue les opérations suivantes :</p>
+<ul class="simple">
+<li><p>mise à zéro du bloc mémoire contenant les variables ayant été
+déclarées avec une valeur d'initialisation à zéro</p></li>
+<li><p>recopie d'une zone mémoire contenant les valeurs initiales des
+variables ayant été déclarées avec une valeur d'initialisation
+différente de zéro vers la zone de ces mêmes variables.</p></li>
+</ul>
+<p>Par ce fait, dès que l'exécution du logiciel est effectuée, on a, lors
+de l'exécution du <em>main</em>, des variables correctement initialisées.</p>
+</div>
+<div class="section" id="binutils">
+<h2><span class="section-number">22.3</span>Binutils<a class="headerlink" href="#binutils" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les outils binaires (<a class="reference external" href="https://en.wikipedia.org/wiki/GNU_Binutils">binutils</a>) sont une collection de programmes installés avec un compilateur et permettant d'aider au développement et au débogage. Certains de ces outils sont très pratiques, mais nombreux sont les développeurs qui ne les connaissent pas.</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">nm</span></code></dt><dd><p>Liste tous les symboles dans un fichier objet (binaire). Ce programme appliqué sur le programme hello world de l'introduction donne:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> nm a.out
+<span class="go">0000000000200dc8 d _DYNAMIC</span>
+<span class="go">0000000000200fb8 d _GLOBAL_OFFSET_TABLE_</span>
+<span class="go">00000000000006f0 R _IO_stdin_used</span>
+<span class="go">                w _ITM_deregisterTMCloneTable</span>
+<span class="go">                w _ITM_registerTMCloneTable</span>
+
+<span class="go">...</span>
+
+<span class="go">                U __libc_start_main@@GLIBC_2.2.5</span>
+<span class="go">0000000000201010 D _edata</span>
+<span class="go">0000000000201018 B _end</span>
+<span class="go">00000000000006e4 T _fini</span>
+<span class="go">00000000000004f0 T _init</span>
+<span class="go">0000000000000540 T _start</span>
+
+<span class="go">...</span>
+
+<span class="go">000000000000064a T main</span>
+<span class="go">                 U printf@@GLIBC_2.2.5</span>
+<span class="go">00000000000005b0 t register_tm_clones</span>
+</pre></div>
+</div>
+<p>On observe notamment que la fonction <code class="docutils literal notranslate"><span class="pre">printf</span></code> est en provenance de la bibliothèque GLIBC 2.2.5, et qu'il y a une fonction <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">strings</span></code></dt><dd><p>Liste toutes les chaînes de caractères imprimables dans un fichier binaire. On observe tous les symboles de débug qui sont par défaut intégrés au fichier exécutable. On lit également la chaîne de caractère <code class="docutils literal notranslate"><span class="pre">hello,</span> <span class="pre">world</span></code>. Attention donc à ne pas laisser les éventuels mots de passes ou numéro de licence en clair dans un fichier binaire.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> strings a.out
+<span class="go">/lib64/ld-linux-x86-64.so.2</span>
+<span class="go">libc.so.6</span>
+<span class="go">printf</span>
+
+<span class="go">...</span>
+
+<span class="go">AUATL</span>
+<span class="go">[]A\A]A^A_</span>
+<span class="go">hello, world</span>
+<span class="go">;*3$&quot;</span>
+<span class="go">GCC: (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0</span>
+
+<span class="go">...</span>
+
+<span class="go">_IO_stdin_used</span>
+<span class="go">__libc_csu_init</span>
+<span class="go">__bss_start</span>
+<span class="go">main</span>
+<span class="go">__TMC_END__</span>
+<span class="go">_ITM_registerTMCloneTable</span>
+<span class="go">__cxa_finalize@@GLIBC_2.2.5</span>
+<span class="go">.symtab</span>
+<span class="go">.strtab</span>
+
+<span class="go">...</span>
+
+<span class="go">.data</span>
+<span class="go">.bss</span>
+<span class="go">.comment</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">size</span></code></dt><dd><p>Liste la taille des segments mémoires utilisés. Ici le programme représente 1517 bytes, les données initialisées 8 bytes, les données variables 600 bytes, soit une somme décimale de 2125 bytes ou <code class="docutils literal notranslate"><span class="pre">84d</span></code> bytes.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> size a.out
+<span class="go">text    data     bss     dec     hex filename</span>
+<span class="go">1517     600       8    2125     84d a.out</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="85-linked-list.html"
+       title="Chapitre précédent">← <span class="section-number">21</span>Structures récursives</a>
+  </li>
+  <li class="next">
+    <a href="92-traps.html"
+       title="Chapitre suivant"><span class="section-number">23</span>Pièges →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright HEIG-VD(c) 2019.
+    Mis à jour le 01 nov. 2019 (version 0.2.0-2-g5c41ba3).
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1 with <a href="https://github.com/heig-vd-tin/sphinx_heigvd_theme">HEIG-VD Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
